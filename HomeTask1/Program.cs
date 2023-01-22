@@ -1,35 +1,26 @@
 ﻿/* Напишите программу, которая принимает на вход пятизначное число и проверяет, 
 является ли оно палиндромом.
-
 14212 -> нет
-
 12821 -> да
-
 23432 -> да
 */ 
 
-// функция получения числа с консоли
-int GetNumber(string message)
-{
-    int result = 0;
-    bool isCorrect = false;
-
-    while(!isCorrect)
+Console.WriteLine("Введите число: ");
+string number = Console.ReadLine();
+int len = number.Length;
+    if (len == 5)
     {
-        Console.WriteLine(message);
-
-        if(int.TryParse(Console.ReadLine(), out result) && result != 0)
+        if (number[0] == number[4] && number[1] == number[3])
         {
-            isCorrect = true;
+            Console.WriteLine($"{number} - Палиндром");
         }
-        else 
+        else
         {
-            Console.WriteLine("Ввели не число или 0ю Введите корректное число.");
+        Console.WriteLine($"{number} - Число не является палиндромом");
         }
     }
-    return result;
-}
+    else Console.WriteLine("Введите пятизначное число");
 
-int N = GetNumber("Введите пятизначное число: ");
 
-Console.WriteLine(Count(N));
+
+
