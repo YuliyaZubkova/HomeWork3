@@ -11,7 +11,7 @@ int GetNumber(string message)
     {
         Console.WriteLine(message);
 
-        if(int.TryParse(Console.ReadLine(), out result) && result != 0)
+        if(int.TryParse(Console.ReadLine(), out result))
         {
             isCorrect = true;
         }
