@@ -14,13 +14,13 @@ int GetNumber(string message)
     {
         Console.WriteLine(message);
 
-        if(int.TryParse(Console.ReadLine(), out result))
+        if(int.TryParse(Console.ReadLine(), out result) && result > 0)
         {
             isCorrect = true;
         }
         else 
         {
-            Console.WriteLine("Введите корректное число.");
+            Console.WriteLine("Введите число больше нуля.");
         }
     }
     return result;
@@ -28,8 +28,8 @@ int GetNumber(string message)
 
 int N = GetNumber("Введите число N: ");
 
-    for (int i = 1; i < N; i++)
+    for (int i = 1; i < N+1; i++)
     {
-        Console.Write($"{i*i}, ");
+        Console.Write($"{i*i*i}, ");
     }
 
