@@ -1,6 +1,6 @@
 ﻿// Напишите программу которая принимает на вход координаты двух точек 
 // и находит расстояние между ними в 2Д пространстве
-// (48я минута семинара)
+
 
 int GetNumber(string message)
 {
@@ -11,36 +11,26 @@ int GetNumber(string message)
     {
         Console.WriteLine(message);
 
-        if(int.TryParse(Console.ReadLine(), out result) && result > 0 && result <= 4)
+        if(int.TryParse(Console.ReadLine(), out result) && result != 0)
         {
             isCorrect = true;
         }
         else 
         {
-            Console.WriteLine("Введите корректное число от 1 до 4.");
+            Console.WriteLine("Ввели не число или 0ю Введите корректное число.");
         }
     }
     return result;
 }
 
-// получение диапазона координат точек, которые могут лежать в заданной четверти
-string GetDiapazon(int quarter)
-{
-    if(quarter == 1)
-        return "Возможный диапазон координат X и Y от 0 до + бесконечности";
-    else if(quarter == 2)
-        return "Возможный диапазон координат X от 0 до - бесконечности, Y от 0 до + бесконечности";
-    else if(quarter == 3)
-        return "Возможный диапазон координат X от 0 до - бесконечности, Y от 0 до - бесконечности";
-    else
-        return "Возможный диапазон координат X от 0 до + бесконечности, Y от 0 до - бесконечности";
-}
+int x1 = GetNumber("Введите координату первой точки Х1: ");
+int y1 = GetNumber("Введите координату первой точки Y1: ");
+int x2 = GetNumber("Введите координату второй точки Х2: ");
+int y2 = GetNumber("Введите координату второй точки Y2: ");
 
-int quarter = GetNumber("Введите номер четверти ");
+double sum1 = Math.Pow((x2-x1), 2);
+double sum2 = Math.Pow((y2-y1), 2);
 
-string diapazon = GetDiapazon(quarter);
+double result = Math.Sqrt(sum1+sum2);
 
-Console.WriteLine($"Точка из четверти ({quarter}) имеет координаты в следующем диапазоне ({diapazon})");
-
-
-
+Console.WriteLine($"Расстояние между двумя точками равно {result.ToString("#.00")}.");
