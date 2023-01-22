@@ -1,5 +1,9 @@
-﻿// Программа принимает число N и выдает на выходе таблицу квадратов от 1 до N
+﻿/* Напишите программу, которая принимает на вход число (N) 
+и выдаёт таблицу кубов чисел от 1 до N.
 
+3 -> 1, 8, 27
+5 -> 1, 8, 27, 64, 125
+*/
 
 int GetNumber(string message)
 {
@@ -10,7 +14,7 @@ int GetNumber(string message)
     {
         Console.WriteLine(message);
 
-        if(int.TryParse(Console.ReadLine(), out result) && result > 0)
+        if(int.TryParse(Console.ReadLine(), out result))
         {
             isCorrect = true;
         }
@@ -24,7 +28,7 @@ int GetNumber(string message)
 
 int N = GetNumber("Введите число N: ");
 
-    for (int i = 1; i < N+1; i++)
+    for (int i = 1; i < N; i++)
     {
         Console.Write($"{i*i}, ");
     }
