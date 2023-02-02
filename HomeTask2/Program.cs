@@ -11,20 +11,31 @@ int GetNumber(string message)
     int result = 0;
     bool isCorrect = false;
 
-    while(!isCorrect)
+    while (!isCorrect)
     {
-        Console.WriteLine(message);
+        Console.Write(message);
 
-        if(int.TryParse(Console.ReadLine(), out result))
+        if (int.TryParse(Console.ReadLine(), out result))
         {
             isCorrect = true;
         }
-        else 
+        else
         {
             Console.WriteLine("Введите корректное число.");
         }
     }
     return result;
+}
+
+void GetDistance(int x1, int x2, int y1, int y2, int z1, int z2)
+{
+    double sum1 = Math.Pow((x2 - x1), 2);
+    double sum2 = Math.Pow((y2 - y1), 2);
+    double sum3 = Math.Pow((z2 - z1), 2);
+
+    double result = Math.Sqrt(sum1 + sum2 + sum3);
+
+    Console.WriteLine($"Расстояние между двумя точками равно {result.ToString("#.00")}.");
 }
 
 int x1 = GetNumber("Введите координату первой точки Х1: ");
@@ -34,11 +45,4 @@ int x2 = GetNumber("Введите координату второй точки 
 int y2 = GetNumber("Введите координату второй точки Y2: ");
 int z2 = GetNumber("Введите координату второй точки Z2: ");
 
-double sum1 = Math.Pow((x2-x1), 2);
-double sum2 = Math.Pow((y2-y1), 2);
-double sum3 = Math.Pow((z2-z1), 2);
-
-double result = Math.Sqrt(sum1+sum2+sum3);
-
-Console.WriteLine($"Расстояние между двумя точками равно {result.ToString("#.00")}.");
-
+GetDistance(x1, x2, y1, y2, z1, z2);
