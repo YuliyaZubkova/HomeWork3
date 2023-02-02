@@ -6,15 +6,15 @@ int GetNumber(string message)
     int result = 0;
     bool isCorrect = false;
 
-    while(!isCorrect)
+    while (!isCorrect)
     {
-        Console.WriteLine(message);
+        Console.Write(message);
 
-        if(int.TryParse(Console.ReadLine(), out result) && result > 0)
+        if (int.TryParse(Console.ReadLine(), out result) && result > 0)
         {
             isCorrect = true;
         }
-        else 
+        else
         {
             Console.WriteLine("Введите корректное число.");
         }
@@ -22,10 +22,14 @@ int GetNumber(string message)
     return result;
 }
 
-int N = GetNumber("Введите число N: ");
-
-    for (int i = 1; i < N+1; i++)
+void GetSquare(int n)
+{
+    for (int i = 1; i <= n; i++)
     {
-        Console.Write($"{i*i}, ");
+        Console.Write($"{i * i}, ");
     }
+}
 
+int n = GetNumber("Введите число N: ");
+
+GetSquare(n);
