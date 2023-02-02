@@ -12,7 +12,7 @@ int GetNumber(string message)
 
     while(!isCorrect)
     {
-        Console.WriteLine(message);
+        Console.Write(message);
 
         if(int.TryParse(Console.ReadLine(), out result) && result > 0)
         {
@@ -26,10 +26,15 @@ int GetNumber(string message)
     return result;
 }
 
-int N = GetNumber("Введите число N: ");
-
-    for (int i = 1; i < N+1; i++)
+void GetCube(int n)
+{
+for (int i = 1; i <= n; i++)
     {
         Console.Write($"{i*i*i}, ");
     }
+}
+
+int n = GetNumber("Введите число N: ");
+
+GetCube(n);    
 
